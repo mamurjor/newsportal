@@ -207,30 +207,5 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 
-//
-// আনুমানিক রিডিং টাইম (২০০ শব্দ/মিনিট)
-function theme_reading_time( $post_id = null ) {
-  $post = get_post( $post_id ?: get_the_ID() );
-  if ( ! $post ) return '—';
-  $words   = str_word_count( wp_strip_all_tags( $post->post_content ) );
-  $minutes = max( 1, ceil( $words / 200 ) );
-  return sprintf( _n( '%s minute read', '%s minutes read', $minutes, 'textdomain' ), number_format_i18n($minutes) );
-}
-
-// ভিউ কাউন্ট (যদি 'post_views_count' মেটা থাকে)
-function theme_get_views( $post_id = null ) {
-  $post_id = $post_id ?: get_the_ID();
-  $v = (int) get_post_meta( $post_id, 'post_views_count', true );
-  return number_format_i18n( $v ) . ' Views';
-}
-
-// শেয়ার কাউন্ট (যদি 'share_count' মেটা থাকে)
-function theme_get_shares( $post_id = null ) {
-  $post_id = $post_id ?: get_the_ID();
-  $s = (int) get_post_meta( $post_id, 'share_count', true );
-  return number_format_i18n( $s ) . ' Share';
-}
-
-
 
 

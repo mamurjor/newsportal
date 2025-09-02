@@ -10,63 +10,93 @@
 <div class="container-fluid features mb-5">
     <div class="container py-5">
         <div class="row g-4">
-            <?php
-            $q = new WP_Query([
-                'posts_per_page'      => 4,
-                'post_status'         => 'publish',
-                'ignore_sticky_posts' => 1,
-            ]);
-            if ($q->have_posts()) :
-                while ($q->have_posts()) : $q->the_post();
-
-                    // ক্যাটাগরি
-                    $cats = get_the_category();
-                    $cat_name = $cats ? $cats[0]->name : __('Uncategorized','textdomain');
-
-                    // ইমেজ
-                    $thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium');
-                    if (!$thumb) {
-                        $thumb = get_template_directory_uri() . '/assets/img/placeholder.jpg';
-                    }
-
-                    // ব্যাজে কমেন্ট সংখ্যা (অথবা ক্যাটাগরি কাউন্ট দেখাতে পারেন)
-                    $badge_count = get_comments_number(get_the_ID());
-            ?>
             <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="row g-3 align-items-center features-item">
+                <div class="row g-4 align-items-center features-item">
                     <div class="col-4">
-                        <div class="features-thumb rounded-circle position-relative">
+                        <div class="rounded-circle position-relative">
                             <div class="overflow-hidden rounded-circle">
-                                <a href="<?php the_permalink(); ?>">
-                                    <img src="<?php echo esc_url($thumb); ?>" class="img-fluid rounded-circle w-100" alt="<?php the_title_attribute(); ?>">
-                                </a>
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/features-sports-1.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                             </div>
-                            <span class="features-badge position-absolute">
-                                <?php echo intval($badge_count); ?>
-                            </span>
+                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                         </div>
                     </div>
                     <div class="col-8">
                         <div class="features-content d-flex flex-column">
-                            <p class="text-uppercase mb-1 small text-muted fw-semibold">
-                                <?php echo esc_html($cat_name); ?>
-                            </p>
-                            <a href="<?php the_permalink(); ?>" class="h6 d-block mb-1 text-dark text-decoration-none">
-                                <?php the_title(); ?>
+                            <p class="text-uppercase mb-2">Sports</p>
+                            <a href="#" class="h6">
+                                Get the best speak market, news.
                             </a>
-                            <small class="text-body">
-                                <i class="fas fa-calendar-alt me-1"></i>
-                                <?php echo esc_html(get_the_date('F j, Y')); ?>
-                            </small>
+                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php endwhile; wp_reset_postdata(); endif; ?>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="row g-4 align-items-center features-item">
+                    <div class="col-4">
+                        <div class="rounded-circle position-relative">
+                            <div class="overflow-hidden rounded-circle">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/features-technology.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="features-content d-flex flex-column">
+                            <p class="text-uppercase mb-2">Technology</p>
+                            <a href="#" class="h6">
+                                Get the best speak market, news.
+                            </a>
+                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="row g-4 align-items-center features-item">
+                    <div class="col-4">
+                        <div class="rounded-circle position-relative">
+                            <div class="overflow-hidden rounded-circle">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/features-fashion.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="features-content d-flex flex-column">
+                            <p class="text-uppercase mb-2">Fashion</p>
+                            <a href="#" class="h6">
+                                Get the best speak market, news.
+                            </a>
+                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="row g-4 align-items-center features-item">
+                    <div class="col-4">
+                        <div class="rounded-circle position-relative">
+                            <div class="overflow-hidden rounded-circle">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/features-life-style.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                            </div>
+                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="features-content d-flex flex-column">
+                            <p class="text-uppercase mb-2">Life Style</p>
+                            <a href="#" class="h6">
+                                Get the best speak market, news.
+                            </a>
+                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 <!-- Features End -->
 
 
@@ -74,145 +104,151 @@
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row g-4">
-           <?php
-// মেইন পোস্ট (সর্বশেষ 1টি)
-$main_q = new WP_Query([
-  'posts_per_page'      => 1,
-  'post_status'         => 'publish',
-  'ignore_sticky_posts' => 1,
-]);
-
-// টপ স্টোরি (পরের 1টি) — চাইলে আলাদা ক্যাটাগরি/ট্যাগ ফিল্টার করতে পারেন
-$top_q = new WP_Query([
-  'posts_per_page'      => 1,
-  'post_status'         => 'publish',
-  'ignore_sticky_posts' => 1,
-  'offset'              => 1,
-]);
-?>
-
-<div class="col-lg-7 col-xl-8 mt-0">
-
-  <?php if ( $main_q->have_posts() ) : while ( $main_q->have_posts() ) : $main_q->the_post();
-    $thumb = get_the_post_thumbnail_url( get_the_ID(), 'large' );
-    if ( ! $thumb ) {
-      $thumb = get_template_directory_uri() . '/assets/img/news-1.jpg'; // আপনার প্লেসহোল্ডার
-    }
-  ?>
-    <div class="position-relative overflow-hidden rounded">
-      <a href="<?php the_permalink(); ?>">
-        <img src="<?php echo esc_url($thumb); ?>" class="img-fluid rounded img-zoomin w-100" alt="<?php the_title_attribute(); ?>">
-      </a>
-
-      <div class="d-flex justify-content-center px-4 position-absolute flex-wrap gap-3" style="bottom: 10px; left: 0;">
-        <span class="text-white me-3 link-hover"><i class="fa fa-clock"></i> <?php echo esc_html( theme_reading_time() ); ?></span>
-        <span class="text-white me-3 link-hover"><i class="fa fa-eye"></i> <?php echo esc_html( theme_get_views() ); ?></span>
-        <span class="text-white me-3 link-hover"><i class="fa fa-comment-dots"></i> <?php echo number_format_i18n( get_comments_number() ); ?> Comment</span>
-        <span class="text-white link-hover"><i class="fa fa-arrow-up"></i> <?php echo esc_html( theme_get_shares() ); ?></span>
-      </div>
-    </div>
-
-    <div class="border-bottom py-3">
-      <a href="<?php the_permalink(); ?>" class="display-4 text-dark mb-0 link-hover"><?php the_title(); ?></a>
-    </div>
-
-    <p class="mt-3 mb-4">
-      <?php echo esc_html( wp_trim_words( get_the_excerpt(), 36, '…' ) ); ?>
-    </p>
-
-  <?php endwhile; wp_reset_postdata(); endif; ?>
-
-  <div class="bg-light p-4 rounded">
-    <div class="news-2">
-      <h3 class="mb-4">Top Story</h3>
-    </div>
-
-    <?php if ( $top_q->have_posts() ) : while ( $top_q->have_posts() ) : $top_q->the_post();
-      $thumb2 = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-      if ( ! $thumb2 ) {
-        $thumb2 = get_template_directory_uri() . '/assets/img/news-2.jpg';
-      }
-    ?>
-      <div class="row g-4 align-items-center">
-        <div class="col-md-6">
-          <div class="rounded overflow-hidden">
-            <a href="<?php the_permalink(); ?>">
-              <img src="<?php echo esc_url($thumb2); ?>" class="img-fluid rounded img-zoomin w-100" alt="<?php the_title_attribute(); ?>">
-            </a>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="d-flex flex-column">
-            <a href="<?php the_permalink(); ?>" class="h3"><?php the_title(); ?></a>
-            <p class="mb-0 fs-5"><i class="fa fa-clock"></i> <?php echo esc_html( theme_reading_time() ); ?></p>
-            <p class="mb-0 fs-5"><i class="fa fa-eye"></i> <?php echo esc_html( theme_get_views() ); ?></p>
-          </div>
-        </div>
-      </div>
-    <?php endwhile; wp_reset_postdata(); endif; ?>
-  </div>
-
-</div>
+            <div class="col-lg-7 col-xl-8 mt-0">
+                <div class="position-relative overflow-hidden rounded">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-1.jpg" class="img-fluid rounded img-zoomin w-100" alt="">
+                    <div class="d-flex justify-content-center px-4 position-absolute flex-wrap" style="bottom: 10px; left: 0;">
+                        <a href="#" class="text-white me-3 link-hover"><i class="fa fa-clock"></i> 06 minute read</a>
+                        <a href="#" class="text-white me-3 link-hover"><i class="fa fa-eye"></i> 3.5k Views</a>
+                        <a href="#" class="text-white me-3 link-hover"><i class="fa fa-comment-dots"></i> 05 Comment</a>
+                        <a href="#" class="text-white link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
+                    </div>
+                </div>
+                <div class="border-bottom py-3">
+                    <a href="#" class="display-4 text-dark mb-0 link-hover">Lorem Ipsum is simply dummy text of the printing</a>
+                </div>
+                <p class="mt-3 mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                <div class="bg-light p-4 rounded">
+                    <div class="news-2">
+                        <h3 class="mb-4">Top Story</h3>
+                    </div>
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-6">
+                            <div class="rounded overflow-hidden">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-2.jpg" class="img-fluid rounded img-zoomin w-100" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column">
+                                <a href="#" class="h3">Stoneman Clandestine Ukrainian claims successes against Russian.</a>
+                                <p class="mb-0 fs-5"><i class="fa fa-clock"> 06 minute read</i> </p>
+                                <p class="mb-0 fs-5"><i class="fa fa-eye"> 3.5k Views</i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-lg-5 col-xl-4">
                <div class="bg-light rounded p-4 pt-0">
                     <div class="row g-4">
-                        
-                      
-<?php
-// প্রথম পোস্টটা স্কিপ করতে offset => 1
-$q = new WP_Query([
-  'posts_per_page'      => 5,          // কতটি দেখাবেন
-  'offset'              => 1,          // প্রথমটা বাদ
-  'post_status'         => 'publish',
-  'ignore_sticky_posts' => 1,
-  'no_found_rows'       => true,       // পারফরম্যান্স অপ্টিমাইজ
-]);
-
-if ( $q->have_posts() ) :
-  while ( $q->have_posts() ) : $q->the_post();
-
-    // থাম্বনেইল (ফলব্যাক)
-    $img = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-    if ( ! $img ) {
-      $img = get_template_directory_uri() . '/assets/img/news-4.jpg'; // আপনার প্লেসহোল্ডার
-    }
-
-    // আনুমানিক রিডিং টাইম (২০০ wpm)
-    $words   = str_word_count( wp_strip_all_tags( get_the_content() ) );
-    $minutes = max( 1, ceil( $words / 200 ) );
-
-    // ভিউ কাউন্ট (মেটা থাকলে)
-    $views = (int) get_post_meta( get_the_ID(), 'post_views_count', true );
-    ?>
-    
-    <div class="col-12">
-      <div class="row g-4 align-items-center">
-        <div class="col-5">
-          <div class="overflow-hidden rounded">
-            <a href="<?php the_permalink(); ?>">
-              <img src="<?php echo esc_url( $img ); ?>" class="img-zoomin img-fluid rounded w-100" alt="<?php the_title_attribute(); ?>">
-            </a>
-          </div>
-        </div>
-        <div class="col-7">
-          <div class="features-content d-flex flex-column">
-            <a href="<?php the_permalink(); ?>" class="h6"><?php the_title(); ?></a>
-            <small class="text-muted me-3">
-              <i class="fa fa-clock"></i>
-              <?php echo esc_html( number_format_i18n( $minutes ) ); ?> minute read
-            </small>
-            <small class="text-muted">
-              <i class="fa fa-eye"></i>
-              <?php echo esc_html( number_format_i18n( $views ) ); ?> Views
-            </small>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <?php endwhile; wp_reset_postdata(); endif; ?>
-
-
+                        <div class="col-12">
+                            <div class="rounded overflow-hidden">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-3.jpg" class="img-fluid rounded img-zoomin w-100" alt="">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex flex-column">
+                                <a href="#" class="h4 mb-2">Get the best speak market, news.</a>
+                                <p class="fs-5 mb-0"><i class="fa fa-clock"> 06 minute read</i> </p>
+                                <p class="fs-5 mb-0"><i class="fa fa-eye"> 3.5k Views</i></p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-5">
+                                    <div class="overflow-hidden rounded">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-3.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="features-content d-flex flex-column">
+                                        <a href="#" class="h6">Get the best speak market, news.</a>
+                                        <small><i class="fa fa-clock"> 06 minute read</i> </small>
+                                        <small><i class="fa fa-eye"> 3.5k Views</i></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-5">
+                                    <div class="overflow-hidden rounded">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-4.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="features-content d-flex flex-column">
+                                        <a href="#" class="h6">Get the best speak market, news.</a>
+                                        <small><i class="fa fa-clock"> 06 minute read</i> </small>
+                                        <small><i class="fa fa-eye"> 3.5k Views</i></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-5">
+                                    <div class="overflow-hidden rounded">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="features-content d-flex flex-column">
+                                        <a href="#" class="h6">Get the best speak market, news.</a>
+                                        <small><i class="fa fa-clock"> 06 minute read</i> </small>
+                                        <small><i class="fa fa-eye"> 3.5k Views</i></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-5">
+                                    <div class="overflow-hidden rounded">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="features-content d-flex flex-column">
+                                        <a href="#" class="h6">Get the best speak market, news.</a>
+                                        <small><i class="fa fa-clock"> 06 minute read</i> </small>
+                                        <small><i class="fa fa-eye"> 3.5k Views</i></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-5">
+                                    <div class="overflow-hidden rounded">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-7.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="features-content d-flex flex-column">
+                                        <a href="#" class="h6">Get the best speak market, news.</a>
+                                        <small><i class="fa fa-clock"> 06 minute read</i> </small>
+                                        <small><i class="fa fa-eye"> 3.5k Views</i></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row g-4 align-items-center">
+                                <div class="col-5">
+                                    <div class="overflow-hidden rounded">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/news-7.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="features-content d-flex flex-column">
+                                        <a href="#" class="h6">Get the best speak market, news.</a>
+                                        <small><i class="fa fa-clock"> 06 minute read</i> </small>
+                                        <small><i class="fa fa-eye"> 3.5k Views</i></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                </div>
             </div>
