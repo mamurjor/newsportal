@@ -65,8 +65,7 @@
                     <?php
                     wp_nav_menu(array(
                         'theme_location' => 'primary',
-                        'menu_class'     => 'navbar-nav mx-auto border-top',
-                     
+                        'menu_class'     => 'navbar-nav mx-auto border-top',                   
                     
                         
                     ));
